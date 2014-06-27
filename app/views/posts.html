@@ -1,13 +1,30 @@
-<div ng-repeat="(postId, post) in posts">
-	<a href="{{ post.url }}">{{ post.title }}</a>
-	<a ng-click="deletePost(postId)">delete </a>
-</div>
+<table class="table teble-hover table-striped">
+	<thead>
+		<tr>
+			<td>#</td>
+			<td>ID</td>
+			<td>Name</td>
+			<td>Action</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="(postId, post) in posts">
+			<td>{{ $index + 1 }}.</td>
+			<td>{{ postId }}</td>
+			<td>
+				<a href="{{ post.url }}">{{ post.title }}</a>
+			</td>
+			<td>
+				<a ng-click="deletePost(postId)">
+					<i class="glyphicon glyphicon-trash"></i>
+				</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
 
 <form ng-submit="submitPost()">
 	<input type="text" ng-model="post.title" />
 	<input type="text" ng-model="post.url" />
 	<input type="submit" value="Add Post" />
 </form>
-
-Posts: {{ posts }}<br />
-Post: {{ post }}

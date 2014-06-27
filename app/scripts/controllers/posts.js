@@ -14,6 +14,10 @@ angular.module('newsApp')
     	url: 'http://',
     	title: ''
     };
+
+    Post.get( function(response) {
+    	$scope.posts = response;
+    });
     $scope.submitPost = function () {
     	Post.save($scope.post, function(ref) {
     		$scope.posts[ref.name] = $scope.post;
@@ -28,7 +32,6 @@ angular.module('newsApp')
     		id: postId
     	}, function () {
     		delete $scope.posts[postId];
-    		console.log('usunięto!');
     	});
     };
   });

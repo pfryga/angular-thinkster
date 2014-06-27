@@ -23,7 +23,12 @@ angular.module('newsApp')
 		    };
     	});
     };
-    $scope.deletePost = function (index) {
-    	$scope.posts.splice(index, 1);
+    $scope.deletePost = function (postId) {
+    	Post.delete({
+    		id: postId
+    	}, function () {
+    		delete $scope.posts[postId];
+    		console.log('usunięto!');
+    	});
     };
   });

@@ -8,7 +8,7 @@
  * Controller of the newsApp
  */
 angular.module('newsApp')
-  .controller('PostsCtrl', function ($scope, Post) {
+  .controller('PostsCtrl', function ($scope, $location, Post) {
   	$scope.posts = {};
     $scope.post = {
     	url: 'http://',
@@ -25,6 +25,7 @@ angular.module('newsApp')
 		    	url: 'http://',
 		    	title: ''
 		    };
+		    $location.path('/posts/' + ref.name);
     	});
     };
     $scope.deletePost = function (postId) {

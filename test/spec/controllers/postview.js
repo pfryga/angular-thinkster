@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: PostCtrl', function () {
+describe('Controller: PostviewCtrl', function () {
 
   // load the controller's module
   beforeEach(module('newsApp'));
 
-  var PostCtrl,
+  var PostviewCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    PostCtrl = $controller('PostCtrl', {
+    PostviewCtrl = $controller('PostviewCtrl', {
       $scope: scope
     });
   }));

@@ -18,16 +18,6 @@ angular.module('newsApp')
     Post.get( function(response) {
     	$scope.posts = response;
     });
-    $scope.submitPost = function () {
-    	Post.save($scope.post, function(ref) {
-    		$scope.posts[ref.name] = $scope.post;
-    		$scope.post = {
-		    	url: 'http://',
-		    	title: ''
-		    };
-		    $location.path('/posts/' + ref.name);
-    	});
-    };
     $scope.deletePost = function (postId) {
     	Post.delete({
     		id: postId
